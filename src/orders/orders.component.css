@@ -1,136 +1,133 @@
 .orders-container {
-  width: 90%;
-  max-width: 900px;
-  margin: 80px auto;
-  font-family: 'Arial', sans-serif;
-  color: #111;
-  padding: 20px;
-  box-sizing: border-box;
+  /* max-width: 1000px; */
+  /* margin: 50px auto; */
+  /* padding: 20px; */
+  font-family: "Poppins", sans-serif;
 }
 
-.orders-container h1 {
-  font-size: 32px;
+.title {
   text-align: center;
-  margin-bottom: 10px;
-}
-
-.orders-container p {
-  text-align: center;
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 40px;
-}
-
-/* Order Card */
-.order-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
   margin-bottom: 25px;
-  padding: 20px;
-  background-color: #fafafa;
 }
 
-.order-header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-
-.order-header p {
-  margin: 3px 0;
-}
-
-.order-items {
-  margin-bottom: 15px;
-}
-
-.order-status p {
-  margin: 5px 0;
-}
-
-/* Status Bar */
-.status-bar {
-  width: 100%;
-  height: 8px;
-  background-color: #ddd;
-  border-radius: 4px;
+/* Table-like layout */
+.order-table {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 
-.status-progress {
-  height: 100%;
-  width: 0;
-  border-radius: 4px;
-  transition: width 0.5s ease;
+/* Header */
+.order-header-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr 1fr;
+  background: #222;
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
-/* Status Colors */
-.status-progress.processing {
-  width: 30%;
-  background-color: #f0ad4e; /* Orange */
+/* Each order summary */
+.order-row {
+  border-bottom: 1px solid #eee;
 }
 
-.status-progress.shipped {
-  width: 70%;
-  background-color: #5bc0de; /* Blue */
-}
-
-.status-progress.delivered {
-  width: 100%;
-  background-color: #5cb85c; /* Green */
-}
-
-/* Actions */
-.order-actions {
-  margin-top: 15px;
-}
-
-.order-actions button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 4px;
+.order-summary {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1fr 1fr 1fr;
+  padding: 14px 20px;
+  align-items: center;
   cursor: pointer;
-  background-color: #111;
-  color: #fff;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease;
 }
 
-.order-actions button:hover {
-  background-color: #333;
+.order-summary:hover {
+  background: #fafafa;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .orders-container h1 {
-    font-size: 28px;
-  }
-
-  .orders-container p {
-    font-size: 14px;
-  }
-
-  .order-header {
-    flex-direction: column;
-  }
-
-  .order-actions button {
-    margin-top: 10px;
-    width: 100%;
-  }
+.col {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@media (max-width: 480px) {
-  .orders-container h1 {
-    font-size: 24px;
-  }
+/* Status badge colors */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
 
-  .order-card {
-    padding: 15px;
-  }
+.status-badge.confirmed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
 
-  .order-actions button {
-    padding: 12px;
+.status-badge.pending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.status-badge.delivered {
+  background-color: #bfdbfe;
+  color: #1e40af;
+}
+
+/* Button */
+.view-btn {
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #444;
+}
+
+/* Expanded order details */
+.order-details {
+  background: #f8f8f8;
+  padding: 15px 30px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.items-table th,
+.items-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.items-table th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

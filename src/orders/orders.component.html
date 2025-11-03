@@ -1,89 +1,55 @@
 <div class="orders-container">
-  <h1>My Orders</h1>
-  <p>Track the status of your orders and view order details.</p>
+  <h1 class="title">All Orders</h1>
 
-  <!-- Single Order -->
-  <div class="order-card">
-    <div class="order-header">
-      <div>
-        <p><strong>Order #:</strong> 123456</p>
-        <p><strong>Date:</strong> 2025-09-16</p>
+  <div class="order-table">
+    <div class="order-header-row">
+      <div class="col order-no">Order No</div>
+      <div class="col customer">Customer</div>
+      <div class="col date">Date</div>
+      <div class="col status">Status</div>
+      <div class="col total">Total</div>
+      <div class="col action">Action</div>
+    </div>
+
+    <div *ngFor="let order of orders" class="order-row">
+      <!-- Order summary row -->
+      <div class="order-summary" (click)="toggleExpand(order.id)">
+        <div class="col order-no">{{ order.order_number }}</div>
+        <div class="col customer">{{ order.user_name }}</div>
+        <div class="col date">{{ order.createdAt | date:'mediumDate' }}</div>
+        <div class="col status">
+          <span class="status-badge" [ngClass]="order.status.toLowerCase()">{{ order.status }}</span>
+        </div>
+        <div class="col total">₹{{ order.final_amount | number:'1.2-2' }}</div>
+        <div class="col action">
+          <button class="view-btn">
+            {{ expandedOrderId === order.id ? 'Hide' : 'View' }}
+          </button>
+        </div>
       </div>
-      <div>
-        <p><strong>Total:</strong> $120.00</p>
+
+      <!-- Expanded items table -->
+      <div *ngIf="expandedOrderId === order.id" class="order-details">
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Variant</th>
+              <th>Qty</th>
+              <th>Price (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of order.items">
+              <td>{{ item.product_name }}</td>
+              <td>{{ item.variant }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.price | number:'1.2-2' }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-
-    <div class="order-items">
-      <p><strong>Items:</strong> Classic T-Shirt × 2, Blue Jeans × 1</p>
-    </div>
-
-    <div class="order-status">
-      <p><strong>Status:</strong> Shipped</p>
-      <div class="status-bar">
-        <div class="status-progress shipped"></div>
-      </div>
-    </div>
-
-    <div class="order-actions">
-      <button>Track Order</button>
-      <button>View Details</button>
-    </div>
-  </div>
-
-  <div class="order-card">
-    <div class="order-header">
-      <div>
-        <p><strong>Order #:</strong> 123457</p>
-        <p><strong>Date:</strong> 2025-09-10</p>
-      </div>
-      <div>
-        <p><strong>Total:</strong> $85.00</p>
-      </div>
-    </div>
-
-    <div class="order-items">
-      <p><strong>Items:</strong> Hoodie × 1, Sneakers × 1</p>
-    </div>
-
-    <div class="order-status">
-      <p><strong>Status:</strong> Delivered</p>
-      <div class="status-bar">
-        <div class="status-progress delivered"></div>
-      </div>
-    </div>
-
-    <div class="order-actions">
-      <button>Track Order</button>
-      <button>View Details</button>
-    </div>
-  </div>
-
-  <div class="order-card">
-    <div class="order-header">
-      <div>
-        <p><strong>Order #:</strong> 123458</p>
-        <p><strong>Date:</strong> 2025-09-12</p>
-      </div>
-      <div>
-        <p><strong>Total:</strong> $60.00</p>
-      </div>
-    </div>
-
-    <div class="order-items">
-      <p><strong>Items:</strong> Summer Dress × 1</p>
-    </div>
-
-    <div class="order-status">
-      <p><strong>Status:</strong> Processing</p>
-      <div class="status-bar">
-        <div class="status-progress processing"></div>
-      </div>
-    </div>
-
-    <div class="order-actions">
-      <button>Track Order</button>
-      <button>View Details</button>
+      
     </div>
   </div>
 </div>
