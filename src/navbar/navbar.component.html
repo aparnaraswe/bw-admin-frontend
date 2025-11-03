@@ -1,0 +1,78 @@
+<aside class="sidebar">
+  <!-- Brand Section -->
+  <div class="brand">
+    <img src="logo-black-bw.png" alt="Clothify Logo" />
+  </div>
+
+  <!-- Navigation Section -->
+  <nav class="nav-links">
+  <a routerLink="/home/dashboard" routerLinkActive="active">
+    <!-- Home icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </svg>
+    <span>Dashboard</span>
+  </a>
+
+  <a routerLink="/home/product" routerLinkActive="active">
+    <!-- Products icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M16 6V4H8v2H2v2h20V6h-6zM2 10v10h20V10H2zm4 2h12v6H6v-6z"/>
+    </svg>
+    <span>Products</span>
+  </a>
+
+  <a routerLink="/home/orders" routerLinkActive="active">
+    <!-- Orders / Box icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M21 7V5H3v2h18zm0 2H3v10h18V9zm-9 2h2v4h-2v-4z"/>
+    </svg>
+    <span>Orders</span>
+  </a>
+
+  <a routerLink="/home/customers" routerLinkActive="active">
+    <!-- Customers icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+    </svg>
+    <span>Customers</span>
+  </a>
+
+  <a routerLink="/home/inventory" routerLinkActive="active">
+    <!-- Inventory / Tags icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M2 6v12h20V6H2zm2 2h16v8H4V8z"/>
+    </svg>
+    <span>Inventory</span>
+  </a>
+
+  <a routerLink="/home/analytics" routerLinkActive="active">
+    <!-- Analytics / Chart icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M3 17h2v-7H3v7zm5 0h2V7H8v10zm5 0h2v-4h-2v4zm5 0h2v-10h-2v10z"/>
+    </svg>
+    <span>Analytics</span>
+  </a>
+
+  <a routerLink="/home/settings" routerLinkActive="active">
+    <!-- Settings / Gear icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19.43 12.98l1.77-1.77-2.12-2.12-1.77 1.77a6.978 6.978 0 00-1.85-.96l-.28-2.1h-3l-.28 2.1c-.67.18-1.3.48-1.85.96L5.92 8.09 3.8 10.21l1.77 1.77a6.978 6.978 0 000 2.04l-1.77 1.77 2.12 2.12 1.77-1.77c.55.48 1.18.78 1.85.96l.28 2.1h3l.28-2.1c.67-.18 1.3-.48 1.85-.96l1.77 1.77 2.12-2.12-1.77-1.77c.16-.67.16-1.36 0-2.04zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+    </svg>
+    <span>Settings</span>
+  </a>
+</nav>
+
+
+  <!-- Footer / User Section -->
+  <div class="sidebar-footer">
+    <div class="user">
+      <div class="avatar">AR</div>
+      <div class="info">
+        <div class="name">Aparna Raswe</div>
+        <div class="role">Administrator</div>
+      </div>
+    </div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</aside>

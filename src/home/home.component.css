@@ -1,0 +1,12 @@
+.admin-layout {
+  display: flex;
+}
+
+.main-content {
+  margin-left: 240px; /* same width as sidebar */
+  padding: 2rem;
+  width: calc(100% - 240px);
+  min-height: 100vh;
+  background: #fafafa;
+  font-family: 'Inter', sans-serif;
+}

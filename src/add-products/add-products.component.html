@@ -1,0 +1,136 @@
+<div class="add-product-container">
+  <h2 class="form-title">Add New Product</h2>
+
+  <form (ngSubmit)="submitProduct()" #productForm="ngForm">
+    <!-- Product Name -->
+    <div class="form-group">
+      <label>Product Name</label>
+      <input type="text" name="name" [(ngModel)]="product.name" required minlength="3" #name="ngModel"/>
+      <div *ngIf="name.invalid && name.touched" class="error">
+        Name is required (min 3 characters)
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Product Description</label>
+      <input type="text" name="description" [(ngModel)]="product.description" required  #name="ngModel"/>
+      <div *ngIf="name.invalid && name.touched" class="error">
+        description is required (min 3 characters)
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="form-group">
+      <label>Category</label>
+      <select name="category" [(ngModel)]="product.category" required #category="ngModel">
+        <option value="">Select Category</option>
+        <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+      </select>
+      <div *ngIf="category.invalid && category.touched" class="error">
+        Category is required
+      </div>
+    </div>
+
+    <!-- Subcategory -->
+    <div class="form-group">
+      <label>Sub-Category</label>
+      <select name="subcategory" [(ngModel)]="product.subcategory" required #subcategory="ngModel">
+        <option value="">Select Sub-Category</option>
+        <option *ngFor="let sub of subcategories" [value]="sub.id">{{ sub.name }}</option>
+      </select>
+      <div *ngIf="subcategory.invalid && subcategory.touched" class="error">
+        Sub-category is required
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="form-group">
+      <label>Price (Rs)</label>
+      <input type="number" name="price" [(ngModel)]="product.price" required min="1" #price="ngModel"/>
+      <div *ngIf="price.invalid && price.touched" class="error">
+        Price must be greater than 0
+      </div>
+    </div>
+
+<!-- Quantity -->
+<div class="form-group">
+  <label>Quantity</label>
+  <input
+    type="number"
+    name="quantity"
+    [(ngModel)]="product.quantity"
+    required
+    min="1"
+    #quantity="ngModel"
+  />
+  <div *ngIf="quantity.invalid && quantity.touched" class="error">
+    Quantity is required (minimum 1)
+  </div>
+</div>
+
+
+    <!-- <div class="form-group">
+      <label>Size</label>
+      <select name="size" [(ngModel)]="product.size" required #size="ngModel">
+        <option value="">Select Size</option>
+        <option *ngFor="let size of sizes" [value]="size.id">{{ size.name }}</option>
+      </select>
+      <div *ngIf="size.invalid && size.touched" class="error">
+        Size is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Color</label>
+      <select name="color" [(ngModel)]="product.color" #color="ngModel">
+        <option value="">Select Color</option>
+        <option *ngFor="let color of colours" [value]="color.id">{{ color.name }}</option>
+      </select>
+    </div> -->
+
+<div class="form-group">
+  <label>Select Colors & Sizes</label>
+
+  <div *ngFor="let color of colours" class="color-dropdown">
+    <!-- Dropdown Header -->
+    <div class="color-btn" (click)="toggleColorDropdown(color.id)">
+      {{ color.name }}
+      <span class="arrow" [class.open]="isColorDropdownOpen(color.id)">&#9662;</span>
+    </div>
+
+    <!-- Dropdown Body: Animated -->
+    <div class="dropdown-body" [class.open]="isColorDropdownOpen(color.id)">
+      <!-- Color checkbox -->
+      <label class="color-select">
+        <input type="checkbox" 
+               [checked]="isColorSelected(color.id)" 
+               (change)="onColorSelect($event, color)" />
+        {{ color.name }} Selected
+      </label>
+
+      <!-- Sizes -->
+      <div class="sizes" *ngIf="isColorSelected(color.id)">
+        <label *ngFor="let size of sizes">
+          <input type="checkbox"
+                 [checked]="isVariantSelected(color.id, size.id)"
+                 (change)="onSizeSelect($event, color.id, size.id)" />
+          {{ size.name }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Image -->
+    <div class="form-group">
+      <label>Image</label>
+      <input type="file" (change)="onImageSelected($event)" #imageInput />
+      <div *ngIf="imageError" class="error">{{ imageError }}</div>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="!productForm.valid || imageError">
+      Add Product
+    </button>
+  </form>
+</div>

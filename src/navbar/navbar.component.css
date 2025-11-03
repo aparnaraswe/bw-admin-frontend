@@ -1,0 +1,111 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.brand img {
+  width: 60px;
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-links a i {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Footer */
+.sidebar-footer {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 1rem;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+}
+
+.avatar {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.info .name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.info .role {
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.logout-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #000;
+  color: #fff;
+}
+.nav-links i-lucide {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+}

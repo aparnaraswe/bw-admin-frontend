@@ -1,0 +1,64 @@
+<div class="product-page">
+  <h2>Our Collection</h2>
+
+ <!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="filter-group">
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="filterProducts()"
+      class="filter-input"
+      placeholder="Search products..."
+    />
+  </div>
+
+  <div class="filter-group">
+    <label for="category">Category</label>
+    <select id="category" [(ngModel)]="selectedCategory" (change)="filterProducts()" class="filter-select">
+      <option value="All">All</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="sort">Sort by</label>
+    <select id="sort" [(ngModel)]="sortOption" (change)="filterProducts()" class="filter-select">
+      <option value="default">Default</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <button class="add-btn" routerLink="/home/add-products">+ Add Product</button>
+  </div>
+</div>
+
+
+  <!-- Product Grid -->
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of filteredProducts">
+    <img [src]="product.image" alt="{{ product.name }}" />
+    <h3>{{ product.name }}</h3>
+    <p>Category: {{ product.category }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <p>Variants: {{ product.variants }}</p>
+    <!-- <p>Color: {{ product.color }}</p> -->
+    <div class="actions">
+      <button [routerLink]="['/home/add-products', product.id]">Edit</button>
+      <button (click)="deleteProduct(product.id)">Delete</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Pagination Controls -->
+<pagination-controls
+  (pageChange)="onPageChange($event)"
+  previousLabel="Prev"
+  nextLabel="Next"
+></pagination-controls>
+
+
+</div>

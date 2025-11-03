@@ -1,0 +1,41 @@
+<div class="cart-drawer" [class.open]="isVisible">
+  <div class="cart-header">
+    <h3>SHOPPING CART</h3>
+    <button class="back-btn" (click)="closePopup()">BACK</button>
+  </div>
+
+  <div class="cart-items">
+    <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+      <!-- Left: Image -->
+      <img class="cart-img" [src]="item.img" alt="Product" />
+
+      <!-- Middle: Details -->
+      <div class="cart-details">
+        <p class="name">{{ item.name }}</p>
+        <p class="variant">{{ item.color }} / {{ item.size }}</p>
+        <div class="qty-controls">
+          <button (click)="decreaseQty(i)">−</button>
+          <span>{{ item.qty }}</span>
+          <button (click)="increaseQty(i)">+</button>
+        </div>
+      </div>
+
+      <!-- Right: Price + Remove -->
+      <div class="cart-price">
+        <p>\${{ item.price * item.qty }}</p>
+        <button class="remove-btn" (click)="removeItem(i)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <div class="subtotal">
+      <span>SUBTOTAL:</span>
+      <span>\${{ subtotal }}</span>
+    </div>
+    <button class="checkout">CHECKOUT</button>
+    <button class="continue" (click)="closePopup()">CONTINUE SHOPPING</button>
+     <button class="continue"(click)="viewOrders()">VIEW ORDERS</button>
+
+  </div>
+</div>

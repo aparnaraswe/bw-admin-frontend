@@ -1,0 +1,26 @@
+<div class="login-main">
+  <div class="login-sub">
+    <div class="login-container">
+      <h2>LOGIN</h2>
+
+      <input
+        class="form-control"
+        type="email"
+        placeholder="EMAIL"
+         [(ngModel)]="email"
+        
+      />
+      <input
+        class="form-control"
+        type="password"
+        placeholder="PASSWORD"
+         [(ngModel)]="password"
+        
+      />
+
+      <button class="login-btn" (click)="login()">SIGN IN</button>
+      <a class="forgot">FORGOT YOUR PASSWORD?</a>
+      <!-- <a class="login-btn register" routerLink="/register">REGISTER AN ACCOUNT</a> -->
+    </div>
+  </div>
+</div>

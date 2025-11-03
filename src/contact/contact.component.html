@@ -1,0 +1,54 @@
+<div class="contact-container">
+  <!-- Header Section -->
+  <div class="contact-header">
+    <p class="small-text">Get in Touch</p>
+    <h2>We’d love to hear from you!</h2>
+    <p class="sub-text">
+      Whether you have questions about our products, need help with an order, 
+      or just want to say hello, we’re here for you.
+    </p>
+
+    <div class="contact-info">
+      <p><strong>Address:</strong> 123 Fashion Street, New York, NY 10001</p>
+      <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+      <p><strong>Email:</strong> supportyourbrand.com</p>
+      <p><strong>Follow us on:</strong> 
+        <a href="#">Facebook</a> | 
+        <a href="#">Instagram</a> | 
+        <a href="#">Twitter</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <h2 class="form-title">Send Us a Message</h2>
+  <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form">
+    <div class="form-row">
+      <input 
+        type="text" 
+        name="name" 
+        placeholder="Your Name" 
+        [(ngModel)]="contact.name" 
+        required>
+    </div>
+
+    <div class="form-row">
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Your Email" 
+        [(ngModel)]="contact.email" 
+        required>
+    </div>
+
+    <div class="form-row">
+      <textarea 
+        name="message" 
+        placeholder="Your Message" 
+        [(ngModel)]="contact.message" 
+        required></textarea>
+    </div>
+
+    <button type="submit" [disabled]="!contactForm.valid">Send Message</button>
+  </form>
+</div>

@@ -1,0 +1,80 @@
+.tracking-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  background-color: #fafafa;
+  max-width: 800px;
+  font-family: 'Arial', sans-serif;
+}
+
+.tracking-container h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.tracking-container p {
+  margin: 3px 0;
+  color: #555;
+}
+
+/* Products */
+.tracking-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 300px;
+}
+
+.product-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* Tracking Steps */
+.tracking-steps {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.tracking-steps li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tracking-steps li span {
+  font-size: 18px;
+  width: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.tracking-steps li div p {
+  margin: 2px 0;
+}
+
+.tracking-steps li.completed span { color: #5cb85c; }
+.tracking-steps li.current span { color: #5bc0de; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tracking-products {
+    flex-direction: column;
+  }
+  .product-card { width: 100%; }
+}
