@@ -12,13 +12,14 @@
     </div>
 
     <div *ngFor="let order of orders" class="order-row">
+
       <!-- Order summary row -->
       <div class="order-summary" (click)="toggleExpand(order.id)">
         <div class="col order-no">{{ order.order_number }}</div>
-        <div class="col customer">{{ order.user_name }}</div>
-        <div class="col date">{{ order.createdAt | date:'mediumDate' }}</div>
+        <div class="col customer">{{ order.email || '-' }}</div>
+        <div class="col date">{{ order.created_at | date:'mediumDate' }}</div>
         <div class="col status">
-          <span class="status-badge" [ngClass]="order.status.toLowerCase()">{{ order.status }}</span>
+          <span class="status-badge" [ngClass]="order.status?.toLowerCase()">{{ order.status }}</span>
         </div>
         <div class="col total">₹{{ order.final_amount | number:'1.2-2' }}</div>
         <div class="col action">
@@ -41,15 +42,37 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of order.items">
-              <td>{{ item.product_name }}</td>
-              <td>{{ item.variant }}</td>
-              <td>{{ item.quantity }}</td>
-              <td>{{ item.price | number:'1.2-2' }}</td>
+              <td>{{ item.product_name || 'N/A' }}</td>
+              <td>{{ item.variant || '-' }}</td>
+              <td>{{ item.quantity || '-' }}</td>
+              <td>{{ item.price ? (item.price | number:'1.2-2') : '-' }}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      
+
     </div>
   </div>
+
+  <!-- ✅ Pagination Section -->
+  <div class="pagination-container" *ngIf="totalCount > itemsPerPage">
+    <button 
+      class="pagination-btn"
+      (click)="previousPage()"
+      [disabled]="currentPage === 1">
+      Previous
+    </button>
+
+    <span class="page-info">
+      Page {{ currentPage }} of {{ totalPages() }}
+    </span>
+
+    <button 
+      class="pagination-btn"
+      (click)="nextPage()"
+      [disabled]="currentPage >= totalPages()">
+      Next
+    </button>
+  </div>
+
 </div>

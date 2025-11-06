@@ -34,6 +34,27 @@ deleteProduct( productId: number ){
     return this.http.post(`${this.apiUrl}/product/deleteProduct` ,  {productId : productId});
 }
 
+
+getDashboardStats(){
+    return this.http.get(`${this.apiUrl}/product/getDashboardStats`);
+}
+
+getRecentOrders(){
+    return this.http.get(`${this.apiUrl}/product/getRecentOrders`);
+}
+
+getPendingIssues(){
+    return this.http.get(`${this.apiUrl}/product/getPendingIssues`);
+}
+
+
+fetchOrders(page: number = 1, limit: number = 10) {
+  return this.http.get(
+    `${this.apiUrl}/product/fetchOrders?page=${page}&limit=${limit}`
+  );
+}
+
+
   logout() {
     localStorage.removeItem('token');
   }
@@ -45,4 +66,23 @@ deleteProduct( productId: number ){
   isLoggedIn(): boolean {
     return !!this.getToken();
   }
+
+  addCadDetails(payload: any) {
+    return this.http.post(`${this.apiUrl}/cad/addCadDetails`, payload);
+  }
+
+  fetchCustomers(page: number = 1, limit: number = 10) {
+      return this.http.get(
+        `${this.apiUrl}/product/fetchAllUsers?page=${page}&limit=${limit}`
+      );
+  }
+
+  fetchCustomerIssues(page: number = 1, limit: number = 10) {
+      return this.http.get(
+        `${this.apiUrl}/product/fetchCustomerIssues?page=${page}&limit=${limit}`
+      );
+  }
+
+
+
 }

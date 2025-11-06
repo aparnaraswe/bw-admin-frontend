@@ -1,0 +1,84 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.kpi-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.kpi-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.kpi-card h3 {
+  font-size: 15px;
+  color: #555;
+}
+
+.kpi-card p {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.grid-2 {
+  margin-top: 24px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card.full-width {
+  margin-top: 20px;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-table th,
+.list-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.badge.pending { background: #FBBF24; }
+.badge.confirmed { background: #34D399; }
+.badge.delivered { background: #3B82F6; }
+
+.resolve-btn {
+  background: #4F46E5;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}

@@ -1,0 +1,218 @@
+/* Main container */
+.issues-container {
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Heading */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+/* Table layout */
+.issues-table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* Table header */
+.issue-header-row {
+  display: table-row;
+  background: #4F46E5;
+  color: white;
+  font-weight: 600;
+}
+
+.issue-header-row .col {
+  padding: 12px 16px;
+  display: table-cell;
+  font-size: 14px;
+  border-bottom: 1px solid transparent;
+}
+
+/* Table rows */
+.issue-row {
+  display: table-row;
+  transition: background 0.2s ease;
+}
+
+.issue-row:hover {
+  background: #F3F4F6;
+}
+
+.issue-row .col {
+  padding: 12px 16px;
+  display: table-cell;
+  font-size: 14px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* Status Badge Styling */
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: white;
+}
+
+.status-badge.new {
+  background: #6366F1; /* Purple */
+}
+
+.status-badge.in_progress {
+  background: #F59E0B; /* Orange */
+}
+
+.status-badge.resolved {
+  background: #10B981; /* Green */
+}
+
+/* Expandable details box */
+.expanded-details {
+  background: #F9FAFB;
+  padding: 14px 20px;
+  border-bottom: 1px solid #E5E7EB;
+  font-size: 14px;
+  color: #374151;
+  display: table-row;
+}
+
+/* Action link/button */
+.action {
+  color: #4F46E5;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.pagination-container button {
+  background-color: #4F46E5;
+  padding: 6px 14px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.pagination-container button:hover {
+  opacity: 0.9;
+}
+
+.pagination-container button:disabled {
+  background-color: #9CA3AF;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* No Data & Loading */
+.no-data,
+.loading {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+  color: #6B7280;
+}
+
+.expanded-details {
+  display: table-row;
+  background: #F9FAFB;
+}
+
+.details-box {
+  padding: 16px;
+  border-left: 4px solid #4F46E5;
+}
+
+.details-box h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.details-box p {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.info-row {
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.value {
+  color: #374151;
+}
+/* Expanded Row Container */
+.details-row {
+  width: 100%;
+  background: #F9FAFB;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Card style like Orders items block */
+.details-card {
+  padding: 16px 20px;
+  border-left: 4px solid #4F46E5;
+  border-top: 1px solid #E5E7EB;
+}
+
+.details-card h4 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.details-card p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.info strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}

@@ -1,0 +1,60 @@
+<div class="issues-container">
+  <h2 class="title">Customer Issues</h2>
+
+  <div class="issues-table">
+
+    <div class="issue-header-row">
+      <div class="col">Customer Email</div>
+      <div class="col">Title</div>
+      <div class="col">Status</div>
+      <div class="col">Date</div>
+      <div class="col">Action</div>
+    </div>
+
+    <div *ngFor="let issue of issues" class="issue-row">
+      <div class="col">{{ issue.customer_email }}</div>
+      <div class="col">{{ issue.issue_title }}</div>
+      <div class="col">
+        <span class="status-badge" [ngClass]="issue.status.toLowerCase()">
+          {{ issue.status }}
+        </span>
+      </div>
+      <div class="col">{{ issue.createdAt | date:'medium' }}</div>
+      <div class="col action" (click)="toggleExpand(issue.id)">
+        {{ expandedIssueId === issue.id ? 'Hide' : 'View' }}
+      </div>
+
+      <!-- Expand details -->
+      <!-- Expanded Issue Details -->
+<!-- Expanded Issue Details -->
+<div *ngIf="expandedIssueId === issue.id" class="details-row">
+  <div class="details-card">
+    <h4>Issue Description</h4>
+    <p>{{ issue.issue_description }}</p>
+
+    <div class="info">
+      <strong>Status:</strong>
+      <span class="status-badge" [ngClass]="issue.status.toLowerCase()">
+        {{ issue.status }}
+      </span>
+    </div>
+
+    <div class="info">
+      <strong>Reported On:</strong>
+      <span>{{ issue.createdAt | date:'medium' }}</span>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+  </div>
+
+  <div class="pagination-container" *ngIf="totalCount > itemsPerPage">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages()">Next</button>
+  </div>
+
+</div>

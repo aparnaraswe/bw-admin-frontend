@@ -11,11 +11,14 @@ import { OrdersComponent } from '../orders/orders.component';
 import { OrderdetailsComponent } from '../order-details/order-details.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AddProductsComponent } from '../add-products/add-products.component';
+import { CadComponent } from './cad/cad.component';
+import { CustomersComponent } from './customers/customers.component';
+import { CustomerIssuesComponent } from './customer-issues/customer-issues.component';
 
 export const routes: Routes = [
   // 👇 Login as entry page
   { path: '', component: LoginComponent },
-
+  { path: 'cad', component: CadComponent }, 
   // 👇 Home is now the layout container
   {
     path: 'home',
@@ -25,6 +28,8 @@ export const routes: Routes = [
       { path: 'product', redirectTo: 'product', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'orders', component: OrdersComponent },
+      { path: 'customers', component: CustomersComponent },
+      { path: 'customer-issues', component: CustomerIssuesComponent },
       { path: 'orders-details', component: OrderdetailsComponent },
       { path: 'collection', component: CollectionComponent },
       { path: 'product', component: ProductComponent },

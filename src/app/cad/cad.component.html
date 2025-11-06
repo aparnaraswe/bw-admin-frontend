@@ -1,0 +1,109 @@
+<div class="orders-container">
+  <h1 class="title">CAD Details</h1>
+
+  <div class="order-table">
+    <div class="order-header-row">
+      <div class="col order-no">cardNo</div>
+      <div class="col customer">bags</div>
+      <div class="col date">weigth</div>
+      <div class="col action">Action</div>
+    </div>
+
+    <div *ngFor="let order of orders" class="order-row">
+      <!-- Order summary row -->
+      <div class="order-summary">
+        <div class="col order-no">{{ order.cardNo }}</div>
+        <div class="col customer">{{ order.bags }}</div>
+        <div class="col date">{{ order.weigth}}</div>
+        <div class="col action">
+          <!-- <button class="view-btn">
+            {{ expandedOrderId === order.cardNo ? 'Hide' : 'View' }}
+          </button> -->
+           <label class="color-select">
+        <input type="checkbox" 
+               [checked]="order.ischecked"
+               (change)="onCadSelected($event, order.cardNo)" 
+               />
+      </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="orders-container">
+  <h1 class="title">Summary Details</h1>
+
+  <div class="order-table">
+    <div class="order-header-row">
+      <div class="col order-no">Total CAD Count</div>
+      <div class="col customer">bags</div>
+      <div class="col date">weigth</div>
+    </div>
+
+    <!-- <div *ngFor="let order of summary" class="order-row"> -->
+      <!-- Order summary row -->
+      <div class="order-summary" >
+        <div class="col order-no">{{ summary.length }}</div>
+        <div class="col customer">{{ bagsCount }}</div>
+        <div class="col date">{{ weigthCount}}</div>
+      
+      </div>
+    <!-- </div> -->
+  </div>
+</div>
+
+
+<div class="orders-container">
+  <h1 class="title">Stack Details</h1>
+
+  <div class="order-table">
+    <div class="order-header-row">
+      <div class="col order-no">Stack No</div>
+      <div class="col customer">Bags</div>
+      <div class="col date">Weight</div>
+      <div class="col action">Action</div>
+    </div>
+
+    <div *ngFor="let stack of stackDetails; let i = index" class="order-row">
+      <div class="order-summary">
+        
+        <div class="col order-no">
+          <input type="number"
+            [(ngModel)]="stackDetails[i].stackNo"
+            required placeholder="Stack No" />
+        </div>
+
+        <div class="col customer">
+          <input type="number"
+            [(ngModel)]="stackDetails[i].bags"
+            required placeholder="Bags" />
+        </div>
+
+        <div class="col date">
+          <input type="number"
+            [(ngModel)]="stackDetails[i].weigth"
+            required placeholder="Weight" />
+        </div>
+
+        <div class="col action">
+          <button type="button" class="delete-btn" (click)="removeStack(i)">
+            X
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- <button type="submit" class="submit-btn" [disabled]="!productForm.valid || imageError"> -->
+<h1 class="title"><button type="submit" class="submit-btn"   (click)="submitData()">
+      Add Product
+</button></h1>
+
+
+

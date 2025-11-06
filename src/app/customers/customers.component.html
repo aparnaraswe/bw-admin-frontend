@@ -1,0 +1,37 @@
+<div class="customers-container">
+  <h2 class="title">All Customers</h2>
+
+  <div class="customers-table">
+
+    <!-- Header -->
+    <div class="customer-header-row">
+      <div class="col">User ID</div>
+      <div class="col">Email</div>
+      <div class="col">Role</div>
+      <div class="col">Registered Date</div>
+    </div>
+
+    <!-- Rows -->
+    <div *ngFor="let user of users" class="customer-row">
+      <div class="col">{{ user.id }}</div>
+      <div class="col">{{ user.email }}</div>
+      <div class="col">
+        <span class="role-badge" [ngClass]="user.role">{{ user.role }}</span>
+      </div>
+      <div class="col">{{ user.createdAt | date:'medium' }}</div>
+    </div>
+
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination-container" *ngIf="totalCount > itemsPerPage">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span class="page-info">Page {{ currentPage }} of {{ totalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages()">Next</button>
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="!users.length && !isLoading" class="no-data">
+    No registered customers.
+  </div>
+</div>
